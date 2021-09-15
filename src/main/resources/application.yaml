@@ -1,0 +1,6 @@
+vertx:
+  server:
+    port: 12345
+    rootPath: pers.vincent.vertxboot
+
+

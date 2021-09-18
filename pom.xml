@@ -23,11 +23,12 @@
         <vertx.version>4.1.2</vertx.version>
         <lang3.version>3.12.0</lang3.version>
         <redisson.version>3.11.2</redisson.version>
-        <shardingsphere.version>5.0.0-alpha</shardingsphere.version>
+        <shardingsphere.version>4.0.1</shardingsphere.version>
         <hikari.version>3.4.2</hikari.version>
         <mybatisPlus.version>3.4.3</mybatisPlus.version>
         <mybatisPlusGenerator.version>3.5.0</mybatisPlusGenerator.version>
         <freemarker.version>2.3.29</freemarker.version>
+        <mybatisTypeHandlers.version>1.0.2</mybatisTypeHandlers.version>
     </properties>
 
     <dependencies>
@@ -127,21 +128,24 @@
         <!-- ShardingSphere -->
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
-            <artifactId>shardingsphere-jdbc-core</artifactId>
+            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
             <version>${shardingsphere.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-namespace</artifactId>
+            <version>${shardingsphere.version}</version>
+        </dependency>
+<!--        &lt;!&ndash; 解决 ShardingSphere LocalDateTime 类型不支持问题 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis</groupId>-->
+<!--            <artifactId>mybatis-typehandlers-jsr310</artifactId>-->
+<!--            <version>${mybatisTypeHandlers.version}</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
         <plugins>
-            <!-- 打包时跳过测试 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

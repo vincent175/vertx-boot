@@ -17,7 +17,7 @@ import java.util.Scanner;
  * @date: 2021/9/16
  */
 public class MySqlGenerator {
-    private static final String url = "jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false";
+    private static final String url = "jdbc:mysql://localhost:3306/test0?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false";
     private static final String username = "root";
     private static final String password = "root";
 
@@ -78,12 +78,12 @@ public class MySqlGenerator {
                 .enableSerialVersionUID()
                 // 数据库表映射到实体的命名策略：下划线转驼峰
                 .naming(NamingStrategy.underline_to_camel)
-                // 主键策略为自增，默认 IdType.AUTO
+                // 主键策略为自动填充，默认 IdType.AUTO
                 .idType(IdType.ASSIGN_ID)
                 // Controller 策略配置
                 .controllerBuilder()
                 // 生成 @RestController 注解
-                .enableRestStyle()
+//                .enableRestStyle()
                 .build();
 
         // 模版配置

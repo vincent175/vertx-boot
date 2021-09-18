@@ -1,28 +1,30 @@
 package pers.vincent.vertxboot.user.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
- * 用户表
+ * 
  * </p>
  *
  * @author Vincent
- * @since 2021-09-17
+ * @since 2021-09-18
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class User implements Serializable {
+public class UserInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主键ID
+     * 主键
      */
     @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
@@ -33,14 +35,31 @@ public class User implements Serializable {
     private String name;
 
     /**
+     * 性别
+     */
+    private String sex;
+
+    /**
      * 年龄
      */
     private Integer age;
 
     /**
-     * 邮箱
+     * 创建时间
      */
-    private String email;
+    @TableField("create_time")
+    private LocalDateTime createTime;
+
+    /**
+     * 更新时间
+     */
+    @TableField("update_time")
+    private LocalDateTime updateTime;
+
+    /**
+     * 是否删除 1删除 0未删除
+     */
+    private Boolean status;
 
 
 }

@@ -34,7 +34,7 @@ public class RouteInfo {
     /**
      * Identify whether the method called is blocked
      */
-    private boolean blocked = true;
+    private boolean blocked;
     /**
      * Response content type
      */
@@ -89,7 +89,7 @@ public class RouteInfo {
                         classRouteInfo.httpMethods : methodMapping.method();
                 String[] produces = methodMapping.produces();
                 routeInfo.produce = StringUtils.join(produces, ";");
-                routeInfo.blocked = methodMapping.async();
+                routeInfo.blocked = methodMapping.blocked();
                 routeInfo.method = method;
                 routeInfos.add(routeInfo);
             }

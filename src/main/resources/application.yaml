@@ -1,8 +1,9 @@
 vertx:
+  maxEventLoopExecuteTime: 7000
+  maxWorkerExecuteTime: 30000
   server:
     port: 12345
     rootPath: pers.vincent.vertxboot
-
 
 spring:
   datasource:
@@ -14,10 +15,3 @@ spring:
     hikari:
       driver-class-name: com.mysql.cj.jdbc.Driver
 
-
-
-
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: classpath*:/mapper/*.xml

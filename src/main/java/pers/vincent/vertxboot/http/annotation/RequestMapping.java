@@ -1,7 +1,5 @@
 package pers.vincent.vertxboot.http.annotation;
 
-import org.springframework.core.annotation.AliasFor;
-import org.springframework.stereotype.Component;
 import pers.vincent.vertxboot.http.HttpMethod;
 
 import java.lang.annotation.ElementType;
@@ -29,5 +27,5 @@ public @interface RequestMapping {
 
     HttpMethod[] method() default {HttpMethod.GET, HttpMethod.POST};
 
-    boolean async() default false;
+    boolean blocked() default true;
 }

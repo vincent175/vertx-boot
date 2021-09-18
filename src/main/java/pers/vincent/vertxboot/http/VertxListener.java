@@ -50,8 +50,12 @@ public class VertxListener implements ApplicationListener<ApplicationStartedEven
         VertxOptions vertxOptions = new VertxOptions();
         vertxOptions.setEventLoopPoolSize(vertxProps.getCorePoolSize())
                 .setWorkerPoolSize(vertxProps.getWorkPoolSize())
+                .setMaxEventLoopExecuteTimeUnit(TimeUnit.MILLISECONDS)
+                .setMaxEventLoopExecuteTime(vertxProps.getMaxEventLoopExecuteTime())
+                .setMaxWorkerExecuteTimeUnit(TimeUnit.MILLISECONDS)
+                .setMaxWorkerExecuteTime(vertxProps.getMaxWorkerExecuteTime())
                 .setWarningExceptionTimeUnit(TimeUnit.SECONDS)
-                .setWarningExceptionTime(60L);
+                .setWarningExceptionTime(30L);
         Vertx vertx = Vertx.vertx(vertxOptions);
 
         DeploymentOptions depOptions = new DeploymentOptions();

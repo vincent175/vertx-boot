@@ -16,14 +16,15 @@
     </parent>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+<!--        <java.version>11</java.version>-->
+<!--        <maven.compiler.source>11</maven.compiler.source>-->
+<!--        <maven.compiler.target>11</maven.compiler.target>-->
         <fasetjson.version>1.2.76</fasetjson.version>
         <vertx.version>4.1.2</vertx.version>
         <lang3.version>3.12.0</lang3.version>
         <redisson.version>3.11.2</redisson.version>
         <shardingsphere.version>5.0.0-alpha</shardingsphere.version>
-        <hikari.version>5.0.0</hikari.version>
+        <hikari.version>3.4.2</hikari.version>
         <mybatisPlus.version>3.4.3</mybatisPlus.version>
         <mybatisPlusGenerator.version>3.5.0</mybatisPlusGenerator.version>
         <freemarker.version>2.3.29</freemarker.version>
@@ -33,6 +34,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -95,12 +102,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>${hikari.version}</version>
@@ -130,4 +131,27 @@
             <version>${shardingsphere.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- 打包时跳过测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

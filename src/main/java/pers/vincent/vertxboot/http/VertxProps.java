@@ -20,6 +20,10 @@ public class VertxProps {
 
     private int verticleCount = 1;
 
+    private long maxEventLoopExecuteTime = 5000L;
+
+    private long maxWorkerExecuteTime = 10000L;
+
     private Server server;
 
     private List<RouteInfo> routeInfos;
